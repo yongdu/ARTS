@@ -72,5 +72,9 @@ synchronized (object){
 
 >The keyword volatile is used to show that a thread should not store a cache memory about this variable x. So the threads have to directly access x and therefore get the latest value. Note that, the race conditions are NOT avoided by volatile variables. As I have mentioned earlier, synchronization is the method to avoid race conditions.
 
+
+**Join()**
+The join() method is used to hold the execution of currently running thread until the specified thread is dead(finished execution). 
+
 Refernce:
 1. http://www.geek-programmer.com/java-thread-synchronization-deadlocks-volatile-variables/
