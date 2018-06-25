@@ -1,0 +1,37 @@
+Maven Skill:
+Change default m2 resource repository folder: e.g. change to directory:D:/.m2/repository
+{MAVEN_HOME}\conf\setting.xml
+  change <localRepository>D:/.m2/repository</localRepository>
+
+
+Central repository:
+https://www.search.maven.org
+
+Import Log4j as log : 
+```
+dependency>
+    <groupId>log4j</groupId>
+    <artifactId>apache-log4j-extras</artifactId>
+    <version>1.2.17</version>
+</dependency>
+```
+
+How to use a jar which is not included by Central repository?
+
+Firstly install the jar file in local repository
+```
+mvn install: install-file -Dfile=d:\.m2\xxxx.jar -DgroupId=com.google.code
+-DartifactId=YYYY -Dversion=zzzz -Dpackaging=jar
+```
+
+Secondly, add dependency in pom.xml 
+```
+dependency>
+    <groupId>com.google.code</groupId>
+    <artifactId>YYYY</artifactId>
+    <version>zzzz</version>
+</dependency>
+``` 
+
+
+
