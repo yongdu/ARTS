@@ -76,5 +76,13 @@ synchronized (object){
 **Join()**
 The join() method is used to hold the execution of currently running thread until the specified thread is dead(finished execution). 
 
+ **wait(), notify() & notifyAll() for Inter-Thread Synchronization**
+ These methods are defined in the java.lang.Object class These methods can only be called in the synchronous codes.
+
+The wait() and notify() methods provide a way for a shared object to pause a thread when it becomes unavailable to that thread and to allow the thread to continue when appropriate.
+
+
 Refernce:
 1. http://www.geek-programmer.com/java-thread-synchronization-deadlocks-volatile-variables/
+
+2. https://www3.ntu.edu.sg/home/ehchua/programming/java/j5e_multithreading.htm
