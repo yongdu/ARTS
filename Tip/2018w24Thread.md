@@ -82,7 +82,13 @@ The join() method is used to hold the execution of currently running thread unti
 The wait() and notify() methods provide a way for a shared object to pause a thread when it becomes unavailable to that thread and to allow the thread to continue when appropriate.
 
 
+现代操作系统提供了三种构造并发程序的方法：
+ * 进程， 每个逻辑控制流都是一个进程，由内核调度和维护。 进程有独立的虚拟空间，与其他流通信， 控制流使用进程通信机制（interprocess communication，IPC） 
+ * I/O 多路复用 应用程序在一个进程的上下文中调度自己的逻辑流。 逻辑流被模型化为状态机，数据到达文件描述符后，主程序从一个状态转化到另一个状态。 应用程序是个单独的进程，所有的流共享同一个地址空间
+ *  线程 是运行在一个单一进程上下文的逻辑流，由内核调度。可以把线程看成上述两种方式的混合，像进程流一样由内核调度，像I/O 多路复用流一样公用同一个虚拟地址空间
+
 Refernce:
 1. http://www.geek-programmer.com/java-thread-synchronization-deadlocks-volatile-variables/
 
 2. https://www3.ntu.edu.sg/home/ehchua/programming/java/j5e_multithreading.htm
+3. http://www.baeldung.com/java-wait-notify
