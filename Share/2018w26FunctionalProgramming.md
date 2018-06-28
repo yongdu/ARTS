@@ -30,6 +30,38 @@ Shortcut: parameter type could be ommitted, complier determines types by the lam
 `() ->System.out.printf("Hello World!")`
 
 
+#### Method references
+ Method reference is the shorthand syntax for a lambda expression that executes just ONE method. 
+ Syntax:
+`Object ::methodName`
+
+4 types of method references:
+1. Instance method of class
+
+   e.g, String::toUpperCase
+   * create a one parameter lambda that invokes the instance method on the lambda's arguement and return the result
+   * shorthand for 
+     * (String s) ->{return s.toUpperCase()}
+     * s -> s.toUpperCase()
+2. Instance method of specific object
+   
+   e.g., System.out::println
+   * creates a one paramter lambda that invokes the instance method on the specific object, passing the lambda's argument to the instance method and return the method's result
+
+3. Static method of a class
+
+   e.g., Math::sqrt
+   * creates a one parameter lambda in which the lambda's arguements is passed to the staic method of class and return the method's result
+
+4. Contructor reference
+
+   e.g., TreeMap::new
+  * creates a lambda that invokes the no-arguements constructor of the specified class to create and initialize a new object
+
+
+
+
+
 #### Streams
 **Streams** are objects that implement interface "Stream" (from package `java.util.stream`) to perform function programming tasks.
 
