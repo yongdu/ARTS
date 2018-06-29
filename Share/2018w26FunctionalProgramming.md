@@ -207,3 +207,11 @@ Even values that are greater than 5  multiplied by 10 displayed in sorted order:
 Sum of integer form 1 to 9: 45
 Sum of integer form 1 to 10: 55
 ```
+
+
+#### Reference
+ 1. http://www.oracle.com/technetwork/articles/java/ma14-java-se-8-streams-2177646.html
+ 2. http://www.javased.com/index.php?api=com.google.common.base.Function
+ 3. https://www.javabrahman.com/java-8/java-8-java-util-function-function-tutorial-with-examples/
+ 4. https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html
+ 5. http://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
