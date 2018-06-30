@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -99,5 +100,69 @@ public class ProcessingEmployee {
 		    .sorted(salaryThenLastThenFirst.reversed())
 		    .map(Employee::getName)
 		    .forEach(System.out::println);
+		
+		// group employee by department
+		System.out.println("%nEmployees by department:%n");
+		Map<String, List<Employee>> groupedByDepartment = 
+				list.stream()
+				    .collect(Collectors.groupingBy(Employee::getDeparetment));
+		groupedByDepartment.forEach(
+				(department, employeeInDepartment) ->
+				{
+					System.out.println(department);
+					employeeInDepartment.forEach(employee ->System.out.printf("  %s%n", employee) );
+				}
+				);
+		
+		   
+		  
+		
+		// count number of Employees in each department
+		System.out.println();
+		System.out.println("Count number of employees by department:");
+		long startTime = System.nanoTime(); 
+		// the code being measured ...  
+		Map<String,Long> employeeCountByDepartment = 
+				list.stream()
+				    .collect(Collectors.groupingBy(Employee::getDeparetment, TreeMap::new,Collectors.counting()));
+		employeeCountByDepartment.forEach((department, count) -> System.out.printf("%s has %d employee(s)%n", department,count) );
+		
+		long estimatedTime = System.nanoTime() - startTime;
+		System.out.println("elampse time for counting numbers of employ is: " + estimatedTime);
+		
+		System.out.println();
+		System.out.println("Count number of employees by department:");
+		long startTimeParallel = System.nanoTime(); 
+		// the code being measured ...  
+		Map<String,Long> employeeCountByDepartmentParralle = 
+				list.parallelStream()
+				    .collect(Collectors.groupingByConcurrent(Employee::getDeparetment, Collectors.counting()));
+		employeeCountByDepartmentParralle.forEach((department, count) -> System.out.printf("%s has %d employee(s)%n", department,count) );
+		
+		System.out.println();
+		long estimatedTimeParallel = System.nanoTime() - startTimeParallel;
+		System.out.println("parallel elampse time for counting numbers of employ is: " + estimatedTimeParallel);
+		System.out.println("Collectors.groupingBy() elapse time - Collectors.groupingByConcurrent() elampse time  is: " + (estimatedTime-estimatedTimeParallel));
+		
+		
+		// sum of employee salaries with double stream sum method
+		System.out.printf("%nSum of employees' salaries (via sum method): %.2f%n", 
+				list.stream()
+				    .mapToDouble(Employee::getSalary)
+				    .sum()
+				);
+		// sum of employees' salaries with reduce method
+		System.out.printf("%nSum of employees' salaries (via reduce method): %.2f%n", 
+				list.stream()
+				    .mapToDouble(Employee::getSalary)
+				    .reduce(0,(value1, value2) -> value1 + value2)
+				);
+		// average of employee salaries with double stream average method
+				System.out.printf("%nAverage of employees' salaries : %.2f%n", 
+						list.stream()
+						    .mapToDouble(Employee::getSalary)
+						    .average()
+						    .getAsDouble()
+						);
 	}
 }

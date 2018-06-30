@@ -215,3 +215,5 @@ Sum of integer form 1 to 10: 55
  3. https://www.javabrahman.com/java-8/java-8-java-util-function-function-tutorial-with-examples/
  4. https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html
  5. http://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
+ 5. https://www.concretepage.com/java/jdk-8/java-8-stream-tutorial-with-example
+ 6. https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
