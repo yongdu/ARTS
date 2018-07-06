@@ -87,6 +87,18 @@ The wait() and notify() methods provide a way for a shared object to pause a thr
  * I/O 多路复用 应用程序在一个进程的上下文中调度自己的逻辑流。 逻辑流被模型化为状态机，数据到达文件描述符后，主程序从一个状态转化到另一个状态。 应用程序是个单独的进程，所有的流共享同一个地址空间
  *  线程 是运行在一个单一进程上下文的逻辑流，由内核调度。可以把线程看成上述两种方式的混合，像进程流一样由内核调度，像I/O 多路复用流一样公用同一个虚拟地址空间
 
+In Java, use the prebuilt classes of the concurrency apis whenever possible: to avoid commaon traps and pitfall-
+* use the cocurrency API collection classs and interfaces that manafe synchronization
+ 1. ArrayBlockingQueue class
+ 2. LinkedBlockingQueue and ConcurrentHashMap
+* for advanced level to control synchronization
+ 1. use the synchronized key word and Object methods wait, notify and notifyAll
+
+
+ 
+
+
+
 Refernce:
 1. http://www.geek-programmer.com/java-thread-synchronization-deadlocks-volatile-variables/
 
