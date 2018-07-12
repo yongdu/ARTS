@@ -1,7 +1,7 @@
 #### Swagger api design
 
 Follow ref[1,2] to get a nutshell of api design
-Ref[3] need be read through sometime this week to get better understanding of good api design.
+To get better understanding of good api design, ref[3] need be read through sometime this week.
 
 
 #### Reference
